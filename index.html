@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0">
+        <link rel="stylesheet" href="src/css/normalize.css">
+        <link rel="stylesheet" href="src/css/main.css">
+        <title>Test title</title>
+    </head>
+    <body>
+        <div class="container">
+            <div id="book-cover">
+                <script id="book-cover-template" type="text/x-handlebars-template">
+                {{#if email}}
+                    {{title}} <br/> {{author}} <br/> {{name}} <br/> {{email}} <br/> {{www}} <br/> 
+                    {{#with adress}}
+                    Adres: <br/>
+                    {{street}} <br/>
+                    {{postCode}} {{city}}
+                    {{/with}} <br/>
+                {{else}}
+                    {{title}} <br/> {{author}} <br/> {{name}} <br/>
+                    {{#with adress}}
+                    Adres: <br/>
+                    {{street}} <br/>
+                    {{postCode}} {{city}}
+                    {{/with}} <br/>
+                {{/if}}
+                {{#unless author}}
+                    Autor nieznany.
+                {{/unless}} <br/>
+                {{price 30}} <br/>
+                <i>{{note 5.0}}</i> <br/>
+                {{{spisTresciH spisTresci}}}
+                <ul>
+                    {{#each spisTresci}}
+                        <li>{{tytul}} - s. {{strona}}</li>
+                    {{/each}}
+                </ul>
+                <ul>
+                    {{#each spis}}
+                        <li>{{this}}<br/></li>
+                    {{/each}}
+                </ul>
+                </script>
+            </div>
+        </div>
+
+      <script src="src/js/app.js"></script>
+    </body>
+</html>
