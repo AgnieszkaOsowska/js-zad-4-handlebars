@@ -11,15 +11,16 @@
         <div class="container">
             <div id="book-cover">
                 <script id="book-cover-template" type="text/x-handlebars-template">
+                    
                 {{#if email}}
-                    {{title}} <br/> {{author}} <br/> {{name}} <br/> {{email}} <br/> {{www}} <br/> 
+                    {{title}} <br/> {{> my-PartialAuthor}} <br/> {{> my-PartialName}} <br/> {{email}} <br/> {{www}} <br/> 
                     {{#with adress}}
                     Adres: <br/>
                     {{street}} <br/>
                     {{postCode}} {{city}}
                     {{/with}} <br/>
                 {{else}}
-                    {{title}} <br/> {{author}} <br/> {{name}} <br/>
+                    {{title}} <br/> {{> my-PartialAuthor}} <br/> {{> my-PartialName}} <br/>
                     {{#with adress}}
                     Adres: <br/>
                     {{street}} <br/>
@@ -43,6 +44,13 @@
                     {{/each}}
                 </ul>
                 </script>
+                <script id="my-partial-author" type="text/x-handlebars-template">
+                    {{author}} <br/>
+                </script>
+                <script id="my-partial-name" type="text/x-handlebars-template">
+                    {{name}} <br/>
+                </script>
+                   
             </div>
         </div>
 

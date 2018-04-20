@@ -7,7 +7,7 @@ import SpisTresci from './spis tresci';
     'use strict';
     const BOOK_DATA = {
         title: 'Testowy tytul ksiazki',
-       // author: 'Gal Anonim',
+        author: 'Gal Anonim',
         name: 'Bla',
         //email: 'ala@wp.pl',
         www: 'www.wp.pl',
@@ -30,10 +30,18 @@ import SpisTresci from './spis tresci';
     const pokazSpis = new SpisTresci;
     pokazSpis.showSpisTresci();
 
+    const myPartialAuthor = document.getElementById('my-partial-author').innerHTML
+    const registerPartialAuthor = Handlebars.registerPartial('my-PartialAuthor', myPartialAuthor);
+
+    const myPartialName = document.getElementById('my-partial-name').innerHTML
+    const registerPartialName = Handlebars.registerPartial('my-PartialName', myPartialName);
+
     const bookCoverTemplate = document.getElementById('book-cover-template').innerHTML;
     const compileTemplate = Handlebars.compile(bookCoverTemplate);
 
     const generateData_coverBook = compileTemplate(BOOK_DATA);
     document.getElementById('book-cover').innerHTML = generateData_coverBook;
+
+
 })();
 
